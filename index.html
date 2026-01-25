@@ -1,513 +1,660 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- saved from url=(0030)https://pengsongyou.github.io/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-  <title>Weifeng Lin</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Weifeng Lin | Home</title>
   
-  <meta name="google-site-verification" content="xDNWUvx6Q5EWK5YYSyKvK8DZTmvXhKsGX203Ll-BFFE">	
-  <meta name="viewport" content="“width=800”">
-  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Weifeng Lin's Homepage">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style type="text/css">
-    @import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100);
-      /* Color scheme stolen from Sergey Karayev */
-      a {
-      /*color: #b60a1c;*/
-      color: #1772d0;
-      /*color: #bd0a36;*/
-      text-decoration:none;
-      }
-      a:focus, a:hover {
-      color: #f09228;
-      text-decoration:none;
-      }
-      body,td,th,tr,p,a {
+    :root {
+      --bg-color: #f4f8fb;        /* 极淡的蓝灰色背景，像淡淡的云 */
+      --card-bg: #ffffff;         /* 纯白内容卡片 */
+      --text-main: #2c3e50;       /* 深蓝灰，比纯黑更自然 */
+      --text-secondary: #546e7a;  /* 次级文字颜色 */
+      --accent-color: #0077b6;    /* 天蓝色，用于链接和强调 */
+      --accent-hover: #023e8a;    /* 深海蓝，用于悬停 */
+      --shadow-light: 0 4px 20px rgba(173, 216, 230, 0.2); /* 淡淡的蓝色阴影 */
+    }
+
+    /* --- 基础重置 --- */
+    body {
       font-family: 'Roboto', sans-serif;
-      font-size: 15px;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 40px 20px;
+      line-height: 1.6;
+      font-size: 16px;
       font-weight: 300;
-      }
-      strong {
-      font-family: 'Roboto', sans-serif;
-      /*font-family: 'Lato', Verdana, Helvetica, sans-serif;*/
-      /*font-family: 'Avenir Next';*/
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-weight: 400;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* --- 容器 --- */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 50px 60px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-light);
+    }
+
+    /* --- 头部简介 (Profile) --- */
+    .profile-section {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 0px;
+      border-bottom: 1px solid #eef2f5;
+      padding-bottom: 30px;
+    }
+
+    .profile-text {
+      flex: 1;
+    }
+
+    .name-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .profile-photo-container {
+      width: 300px;
+      flex-shrink: 0;
+    }
+
+    .profile-photo {
+      width: 100%;
+      border-radius: 8px; /* 轻微圆角 */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.02);
+    }
+
+    .contact-links {
+      margin-top: 15px;
       font-size: 15px;
-      font-weight: 400;
-      }
-      heading {
-      /*font-family: 'Lato', Verdana, Helvetica, sans-serif;*/
-      font-family: 'Roboto', sans-serif;
-      /*font-family: 'Avenir Next';*/
-      /*src: url("./fonts/Roboto_Mono_for_Powerline.ttf");*/
-      font-size: 24px;
-      font-weight: 400;
-      }
-      papertitle {
-      /*font-family: 'Lato', Verdana, Helvetica, sans-serif;*/
-      font-family: 'Roboto', sans-serif;
-      /*font-family: 'Avenir Next';*/
-      /*src: url("./fonts/Roboto_Mono_for_Powerline.ttf");*/
-      font-size: 15px;
-      font-weight:500;
-      }
-      name {
-      /*font-family: 'Lato', Verdana, Helvetica, sans-serif;*/
-      font-family: 'Roboto', sans-serif;
-      /*font-family: 'Avenir Next';*/
-      font-weight: 400;
-      font-size: 32px;
-      }
-      .one
-      {
-      width: 160px;
-      height: 140px;
+    }
+
+    /* --- 章节标题 --- */
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-top: 15px;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e0f2fe; /* 浅蓝色下划线 */
+      display: inline-block;
+    }
+
+    /* --- 论文列表样式 --- */
+    .paper-item {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 35px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .paper-img-container {
+      width: 220px;
+      flex-shrink: 0;
       position: relative;
-      }
-      .two
-      {
-      width: 160px;
-      height: 160px;
+    }
+
+    .paper-img {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid #f0f0f0;
+    }
+
+    .paper-item:hover .paper-img {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,119,182, 0.15); /* 悬停时泛起蓝光 */
+    }
+
+    .paper-text {
+      flex: 1;
+    }
+
+    .paper-title {
+      font-size: 17px;
+      font-weight: 500;
+      color: #000;
+      display: block;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    
+    .paper-title:hover {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .authors {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .me {
+      font-weight: 500;
+      color: var(--text-main);
+      border-bottom: 1px dashed var(--accent-color);
+    }
+
+    .venue {
+      font-style: italic;
+      color: #000;
+      font-weight: 400;
+    }
+
+    .tag-row {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .links-row {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+    
+    .links-row a {
+        margin-right: 10px;
+        font-weight: 500;
+    }
+
+    .keyword-label {
+      font-weight: 500;
+      color: var(--text-main);
+      font-size: 13px;
+    }
+
+    /* --- Experience 板块样式 --- */
+    .experience-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px 0;
+      border-bottom: 1px solid #eef2f5;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .experience-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .experience-left {
+      flex: 1;
+    }
+
+    .experience-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 4px;
+    }
+
+    .experience-title a {
+      color: #000;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .experience-title a:hover {
+      color: var(--accent-color);
+    }
+
+    .experience-content {
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    .experience-right {
+      text-align: right;
+      white-space: nowrap;
+      margin-left: 20px;
+    }
+
+    .experience-time {
+      font-size: 15px;
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+
+    .experience-location {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* --- Reviewer Service 板块样式 --- */
+    .reviewer-item {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    /* --- News 板块样式 --- */
+    .news-list {
+      list-style: none; /* 去掉默认样式 */
+      padding-left: 0;
+      margin: 0;
+    }
+    
+    .news-item {
+      display: flex;
+      margin-bottom: 12px;
+      font-size: 15px;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .news-item::before {
+      content: "•";
       position: absolute;
-      transition: opacity .2s ease-in-out;
-      -moz-transition: opacity .2s ease-in-out;
-      -webkit-transition: opacity .2s ease-in-out;
-      }
-      .fade {
-       transition: opacity .2s ease-in-out;
-       -moz-transition: opacity .2s ease-in-out;
-       -webkit-transition: opacity .2s ease-in-out;
-      }
-      span.highlight {
-          background-color: #ffffd0;
-      }
-    </style>
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+      left: 0;
+      color: #000;
+    }
+
+    .news-date {
+      font-weight: 400;
+      color: #000;
+      min-width: 90px;
+      flex-shrink: 0;
+    }
+    
+    .news-content {
+      color: var(--text-main);
+    }
+
+    /* --- 移动端适配 --- */
+    @media (max-width: 768px) {
+      body { padding: 10px; }
+      .container { padding: 30px 20px; }
+      .profile-section { flex-direction: column-reverse; text-align: center; }
+      .profile-photo-container { width: 160px; margin: 0 auto; }
+      .paper-item { flex-direction: column; gap: 15px; }
+      .paper-img-container { width: 100%; max-width: 300px; }
+    }
+
+    /* --- 简单的淡入动画 --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Clustrmaps 居中 */
+    .map-container {
+      margin-top: 60px;
+      text-align: center;
+      opacity: 0.8;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+    .map-container:hover {
+      filter: grayscale(0%);
+    }
+  </style>
 </head>
 
 <body>
-  <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-    <td>
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <!--<tr onmouseout="headshot_stop()" onmouseover="headshot_start()">-->
-      <tbody><tr>
-        <td width="70%" valign="middle">
-          <p align="center">
-            <name>Weifeng Lin (林炜丰)</name>
-          </p>
-          <p>
-            I am currently a PhD candidate at the <a href="http://mmlab.ie.cuhk.edu.hk/">Multimedia Laboratory (MMLab)</a>, The Chinese University of Hong Kong, supervised by <a href="https://www.ee.cuhk.edu.hk/~hsli/">Prof. Hongsheng Li</a>. 
-            I earned both my Bachelor's and Master's degrees from the <a href="https://www.scut.edu.cn/en//">South China University of Technology</a> in 2021 and 2024, respectively, where I had the privilege of being advised by <a href="http://www.dlvc-lab.net/lianwen/">Prof. Lianwen Jin</a> and enjoyed a memorable seven years.
-          </p>
-          <p>
-            My research interests include Computer Vision (CV), Multimodal Large Language Models, and Generative Models. 
-            I am deeply committed to contributing to open-source projects, as I firmly believe they are a cornerstone for the sustainable growth of the AI community.
-          </p>
-              
-          <p align="center">
-            <a href="wflin37@gmail.com" style="font-size: 16px;">Email: wflin37@gmail.com</a> &nbsp/&nbsp
-            <a href="https://scholar.google.com/citations?user=8iCZxIAAAAAJ&hl=zh-CN" style="font-size: 16px;">Google Scholar</a> &nbsp/&nbsp
-            <a href="https://github.com/Afeng-x" style="font-size: 16px;">Github</a>
-          </p>
-          </td>
 
-          <td width="33%">
-            <a href="images/avater.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/avater.jpg" class="hoverZoomLink"></a>
-          </td>
-        </tr>
-        </tbody></table>
- 
-  <!-- Preprint -->
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr>
-        <td style="padding:20px;width:100%;vertical-align:middle">
-          <heading>Preprint</heading>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container">
 
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-        <td width="30%">
-          <div class="one">
-            <img src='images/pixwizard.jpg' width="215">
-          </div>
-        </td>
-        <td valign="top" width="70%">
-          <a
-            href="https://arxiv.org/abs/2409.15278">
-            <papertitle style="font-size: 16px;">PixWizard: Versatile Image-to-Image Visual Assistant with Open-Language Instructions</papertitle>
-          </a>
-          <br>
-          <strong>Weifeng Lin</strong>,
-          Xinyu Wei, 
-          Renrui Zhang, 
-          Le Zhuo, 
-          Shitian Zhao, 
-          Siyuan Huang, 
-          Junlin Xie, 
-          Yu Qiao, 
-          Peng Gao, 
-          Hongsheng Li
-          <p>
-            <em>arxiv Preprint</em>, 2024
-            <br>
-            <a href="https://arxiv.org/abs/2409.15278" style="font-size: 15px;">[Paper] </a> |
-            <a href="https://github.com/AFeng-x/PixWizard" style="font-size: 15px;">[Code]</a>
-            <br>
-            <strong>Keywords:</strong> Image Generation, Image-to-Image, Instruction-based Visual Assistant
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="profile-section">
+    <div class="profile-text">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <div class="name-title">Weifeng Lin (林炜丰)</div>
+      </div>
+      <p>
+        I am currently a second-year Ph.D. student at the <a href="http://mmlab.ie.cuhk.edu.hk/">MMLab</a>, The Chinese University of Hong Kong (CUHK), supervised by <a href="https://www.ee.cuhk.edu.hk/~hsli/">Hongsheng Li</a>. I am also an ex-intern of AlibabaCloud, Shanghai AI Lab, and SenseTime Robotics Group. 
+      </p>
+      <p>
+        I earned both my Bachelor's and Master's degrees from the <a href="https://www.scut.edu.cn/en//">South China University of Technology</a> in 2021 and 2024, respectively, being advised by <a href="http://www.dlvc-lab.net/lianwen/">Lianwen Jin</a>.
+      </p>
+      <p>
+        <b>Research Interest</b>: Interative Vision-Language Models, the Large-scale Video Generation Model, and the Intersection of Robotics.
+        I am also deeply committed to contributing to open-source projects, believing they are a cornerstone for the sustainable growth of the AI community.
+      </p>
 
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-        <td width="30%">
-          <div class="one">
-            <img src='images/DnU.png' width="215">
-          </div>
-        </td>
-        <td valign="top" width="70%">
-          <a
-            href="https://arxiv.org/abs/2403.20271">
-            <papertitle style="font-size: 16px;">Draw-and-Understand: Leveraging Visual Prompts to Enable MLLMs to Comprehend What You Want</papertitle>
-          </a>
-          <br>
-          <strong>Weifeng Lin</strong>,
-          Xinyu Wei, 
-          Renrui Zhang, 
-          Ruichuan An, 
-          Peng Gao, 
-          Bocheng Zou, 
-          Yulin Luo, 
-          Siyuan Huang, 
-          Shanghang Zhang, 
-          Hongsheng Li
-          <p>
-            <em>arxiv Preprint</em>, 2024
-            <br>
-            <a href="https://arxiv.org/abs/2403.20271" style="font-size: 15px;">[Paper] </a> |
-            <a href="https://github.com/AFeng-x/Draw-and-Understand" style="font-size: 15px;">[Code]</a>
-            <br>
-            <strong>Keywords:</strong> MLLM, Visual prompts
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-        <td width="30%">
-          <div class="one">
-            <img src='images/mGPT.jpg' width="215">
-          </div>
-        </td>
-        <td valign="top" width="70%">
-          <a
-            href="https://arxiv.org/abs/2408.02657">
-            <papertitle style="font-size: 16px;">Lumina-mgpt: Illuminate flexible photorealistic text-to-image generation with multimodal generative pretraining</papertitle>
-          </a>
-          <br>
-          Dongyang Liu*,
-          Shitian Zhao*, 
-          Le Zhuo*, 
-          <strong>Weifeng Lin*</strong>, 
-          Yu Qiao, 
-          Hongsheng Li, 
-          Peng Gao
-          <p>
-            <em>arxiv Preprint</em>, 2024
-            <br>
-            <a href="https://arxiv.org/abs/2408.02657" style="font-size: 15px;">[Paper] </a> |
-            <a href="https://github.com/Alpha-VLLM/Lumina-mGPT" style="font-size: 15px;">[Code]</a>
-            <br>
-            <strong>Keywords:</strong> Multimodal Autoregressive Generation models
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-        <td width="30%">
-          <div class="one">
-            <img src='images/hst.jpg' width="215">
-          </div>
-        </td>
-        <td valign="top" width="70%">
-          <a
-            href="https://arxiv.org/abs/2310.05393">
-            <papertitle style="font-size: 16px;">Hierarchical Side-Tuning for Vision Transformers</papertitle>
-          </a>
-          <br>
-          <strong>Weifeng Lin</strong>,
-          Ziheng Wu,
-          Jiayu Chen,
-          Wentao Yang,
-          Mingxin Huang,
-          Jun Huang,
-          Lianwen Jin
-          <p>
-            <em>arxiv Preprint</em>, 2023
-            <br>
-            <a href="https://arxiv.org/abs/2310.05393" style="font-size: 15px;">[paper] </a> |
-            <a href="https://github.com/AFeng-x/HST" style="font-size: 15px;">[Code] </a>
-            <br>
-            <strong>Keywords:</strong> Parameter-efficient transfer learning for vision Transformers in various vision tasks (classification, detection, segmentation)
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+      <p>
+        <b>Email</b>: wflin37@gmail.com
+      </p>
+      
+      <div class="contact-links">
+        <a href="mailto:wflin37@gmail.com">Email</a> &nbsp;/&nbsp;
+        <a href="https://scholar.google.com/citations?user=8iCZxIAAAAAJ">Google Scholar</a> &nbsp;/&nbsp;
+        <a href="https://github.com/Afeng-x">Github</a> &nbsp;/&nbsp;
+        <a href="https://www.linkedin.com/in/weifeng-lin-1a76783a8/">LinkedIn</a> &nbsp;/&nbsp;
+        <a href="https://x.com/WeifengLin_07">Twitter (X)</a> &nbsp;/&nbsp;
+        <a href="#">CV (Coming Soon)</a>
+      </div>
+    </div>
+    
+    <div class="profile-photo-container">
+      <img src="images/avater.jpg" alt="Weifeng Lin" class="profile-photo">
+    </div>
+  </div>
 
 
-  <!-- Publications -->
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr>
-        <td style="padding:20px;width:100%;vertical-align:middle">
-          <heading>Publications</heading>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-        <td width="30%">
-          <div class="one">
-            <img src='images/smt.jpg' width="215">
-          </div>
-        </td>
-        <td valign="top" width="70%">
-          <a
-            href="https://arxiv.org/abs/2307.08579">
-            <papertitle style="font-size: 16px;">Scale-Aware Modulation Meet Transformer</papertitle>
-          </a>
-          <br>
-          <strong>Weifeng Lin</strong>,
-          Ziheng Wu,
-          Jiayu Chen,
-          Jun Huang,
-          Lianwen Jin
-          <p>
-            <em>International Conference on Computer Vision <strong>(ICCV)</strong></em>, 2023
-            <br>
-            <a href="https://arxiv.org/abs/2307.08579" style="font-size: 15px;">[paper] </a> |
-            <a href="https://github.com/AFeng-x/SMT" style="font-size: 15px;">[Code] </a>
-            <br>
-            <strong>Keywords:</strong> Hybrid CNN-Transformer Network (Vision Transformer Backbone)
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-        <td width="30%">
-          <div class="one">
-            <img src='images/M2SD.jpg' width="215">
-          </div>
-        </td>
-        <td valign="top" width="70%">
-          <a
-            href="https://ojs.aaai.org/index.php/AAAI/article/view/28129">
-            <papertitle style="font-size: 16px;">M2SD: Multiple Mixing Self-Distillation for Few-Shot Class-Incremental Learning</papertitle>
-          </a>
-          <br>
-          Jinhao Lin,
-          Ziheng Wu,
-          <strong>Weifeng Lin</strong>,
-          Ziheng Wu,
-          Jun Huang,
-          RongHua Luo
-          <p>
-            <em>Association for the Advancement of Artificial Intelligence <strong>(AAAI)</strong></em>, 2024
-            <br>
-            <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28129" style="font-size: 15px;">[paper] </a>
-            <br>
-            <strong>Keywords:</strong> Few-shot Class-incremental learning
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-	    <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-        <td width="30%">
-          <div class="one">
-            <img src='images/rapid_diff.jpg' width="215">
-          </div>
-        </td>
-        <td valign="top" width="70%">
-					<a href="https://aclanthology.org/2023.acl-industry.28.pdf">
-            <papertitle style="font-size: 16px;">Rapid Diffusion: Building Domain-Specific Text-to-Image Synthesizers with Fast Inference Speed</papertitle>
-          </a>
-          <br>
-            Bingyan Liu*,
-            <strong>Weifeng Lin*</strong>,
-            Zhongjie Duan,
-            Chengyu Wang,
-            Ziheng Wu,
-            Zipeng Zhang,
-            Kui Jia,
-            Lianwen Jin,
-            Cen Chen,
-            Jun Huang
-          <p>
-            <em>Annual Meeting of the Association for Computational Linguistics <strong>(ACL-Industry)</strong></em>, 2023  
-            <br>
-            <a href="https://aclanthology.org/2023.acl-industry.28.pdf" style="font-size: 15px;">[paper] </a> |
-            <a href="https://github.com/alibaba/EasyNLP" style="font-size: 15px;">[Code] </a>
-            <br>
-            <strong>Keywords:</strong> Text-to-image latent diffusion models with rich entity knowledge.
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-	    <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-        <td width="30%">
-          <div class="one">
-            <img src='images/mobile-NAS.jpg' width="215">
-          </div>
-        </td>
-        <td valign="top" width="70%">
-					<a href="">
-            <papertitle style="font-size: 16px;">Building A Mobile Text Recognizer via Truncated SVD-based Knowledge Distillation-Guided NAS</papertitle>
-          </a>
-          <br>
-            <strong>Weifeng Lin</strong>,
-            Canyu Xie,
-            Dezhi Peng,
-            Jiapeng Wang,
-            Lianwen Jin,
-            Wei Ding,
-            Lianwen Jin,
-            Cong Yao,
-            Mengchao He
-          <p>
-            <em>British Machine Vision Conference <strong>(BMVC)</strong></em>, 2023  
-            <br>
-            <a href="https://papers.bmvc2023.org/0375.pdf" style="font-size: 15px;">[Paper]</a> |
-            <a href="https://www.modelscope.cn/models/damo/cv_proxylessnas_ocr-detection-db-line-level_damo/summary" style="font-size: 15px;">[Detection] </a> |
-            <a href="https://modelscope.cn/models/damo/cv_LightweightEdge_ocr-recognitoin-general_damo/summary" style="font-size: 15px;">[Recognition] </a> |
-            <a href="https://github.com/AlibabaResearch/AdvancedLiterateMachinery/tree/main/OCR/LiteWeightOCR" style="font-size: 15px;">[Demo] </a>
-            <br>
-            <strong>Keywords:</strong> Mobile Text Recognizer
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- Experience -->
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr>
-        <td style="padding:20px;width:100%;vertical-align:middle">
-          <heading>Experience</heading>
-          <!-- <p>
-            I am devoted to Open Source projects.
-          </p> -->
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="section-title">News</div>
   
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-        <td width="30%">
-          <div class="one">
-            <img src='images/SHAILab.png' width="215">
-          </div>
-        </td>
-        <td valign="top" width="70%">
-          <a href="http://opengvlab.shlab.org.cn/">
-            <papertitle style="font-size: 16px;">Shanghai AI Lab</papertitle>
-          </a>
-          <p>
-            <strong>Position:</strong> Research Intern, OpenGVLab
-            <br>
-            <strong>Location:</strong> Shanghai, China
-            <br>
-            <strong>Time:</strong> 2024.01 - 2024.06
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <ul class="news-list">
+    <li class="news-item">
+      <span class="news-date">[09/2025]</span>
+      <span class="news-content">Three papers have accepted by NeurIPS 2025</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">[08/2025]</span>
+      <span class="news-content">Received Hong Kong Postgraduate Scholoarship, 2025</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">[01/2025]</span>
+      <span class="news-content">Two papers have accepted by ICLR 2025</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">[05/2024]</span>
+      <span class="news-content">Invited talk on <a href="https://www.idea.edu.cn/">IDEA-CVR</a> about "Draw-and-Understand", a project on visual prompting for VLMs.</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">[06/2023]</span>
+      <span class="news-content">Invited talk on <a href="https://www.techbeat.net/">TechBeat</a> for "Scale-Aware Modulation Meet Transformer".</span>
+    </li>
+  </ul>
 
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tbody>
-      <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-        <td width="30%">
-          <div class="one">
-            <img src='images/ali_cloud.jpg' width="215">
-          </div>
-        </td>
-        <td valign="top" width="70%">
-          <a href="https://www.alibabacloud.com/">
-            <papertitle style="font-size: 16px;">Alibaba Cloud Intelligent</papertitle>
-          </a>
-          <p>
-            <strong>Position:</strong> Research Intern, Machine Learning - Deep Learning Algorithms
-            <br>
-            <strong>Location:</strong> Hangzhou, China
-            <br>
-            <strong>Time:</strong> 2022.11 - 2023.12
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="section-title">Selected Publications</div>
+
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/pam.jpg" alt="PAM" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="https://arxiv.org/abs/2506.05302" class="paper-title">Perceive Anything: Recognize, Explain, Caption, and Segment Anything in Images and Videos</a>
+      <div class="authors">
+        <span class="me">Weifeng Lin</span>, Xinyu Wei, Ruichuan An, Tianhe Ren, Tingwei Chen, Renrui Zhang, Ziyu Guo, Wentao Zhang, Lei Zhang, Hongsheng Li
+      </div>
+      <div class="venue">NeurIPS, 2025</div>
+      <div class="links-row">
+        <a href="https://arxiv.org/abs/2506.05302">[Paper]</a>
+        <a href="https://perceive-anything.github.io/">[Homepage]</a>
+        <a href="https://github.com/Perceive-Anything/PAM">[Code]</a>
+        <a href="https://huggingface.co/datasets/Perceive-Anything/PAM-data">[Dataset]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/mini-cot.jpg" alt="MINT-CoT" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="https://arxiv.org/pdf/2506.05331" class="paper-title">MINT-CoT: Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning</a>
+      <div class="authors">
+        Xinyan Chen, Renrui Zhang, Dongzhi Jiang, Aojun Zhou, Shilin Yan, <span class="me">Weifeng Lin</span>, Hongsheng Li
+      </div>
+      <div class="venue">NeurIPS, 2025</div>
+      <div class="links-row">
+        <a href="https://arxiv.org/pdf/2506.05331">[Paper]</a>
+        <a href="https://github.com/xinyan-cxy/MINT-CoT">[Code]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/ui-genie.jpg" alt="UI-Genie" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="https://arxiv.org/pdf/2505.21496" class="paper-title">UI-Genie: A Self-Improving Approach for Iteratively Boosting MLLM-based Mobile GUI Agents</a>
+      <div class="authors">
+        Han Xiao, Guozhi Wang, Yuxiang Chai, Zimu Lu, <span class="me">Weifeng Lin</span>, Hao He, Lue Fan, Liuyang Bian, Rui Hu, Liang Liu, Shuai Ren, Yafei Wen, Xiaoxin Chen, Aojun Zhou, Hongsheng Li
+      </div>
+      <div class="venue">NeurIPS, 2025</div>
+      <div class="links-row">
+        <a href="https://arxiv.org/pdf/2505.21496">[Paper]</a>
+        <a href="https://github.com/Euphoria16/UI-Genie">[Code]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/pixwizard.jpg" alt="PixWizard" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="https://arxiv.org/abs/2409.15278" class="paper-title">PixWizard: Versatile Image-to-Image Visual Assistant with Open-Language Instructions</a>
+      <div class="authors">
+        <span class="me">Weifeng Lin</span>, Xinyu Wei, Renrui Zhang, Le Zhuo, Shitian Zhao, Siyuan Huang, Junlin Xie, Yu Qiao, Peng Gao, Hongsheng Li
+      </div>
+      <div class="venue">ICLR, 2025</div>
+      <div class="links-row">
+        <a href="https://arxiv.org/abs/2409.15278">[Paper]</a>
+        <a href="https://github.com/AFeng-x/PixWizard">[Code]</a>
+      </div>
+      <!-- <div class="tag-row">
+        <span class="keyword-label">Keywords:</span> Image Generation, Image-to-Image, Visual Assistant
+      </div> -->
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/DnU.png" alt="Draw-and-Understand" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="https://arxiv.org/abs/2403.20271" class="paper-title">Draw-and-Understand: Leveraging Visual Prompts to Enable MLLMs to Comprehend What You Want</a>
+      <div class="authors">
+        <span class="me">Weifeng Lin</span>, Xinyu Wei, Renrui Zhang, Ruichuan An, Peng Gao, Bocheng Zou, Yulin Luo, Siyuan Huang, Shanghang Zhang, Hongsheng Li
+      </div>
+      <div class="venue">ICLR, 2025</div>
+      <div class="links-row">
+        <a href="https://arxiv.org/abs/2403.20271">[Paper]</a>
+        <a href="https://github.com/AFeng-x/Draw-and-Understand">[Code]</a>
+      </div>
+      <!-- <div class="tag-row">
+        <span class="keyword-label">Keywords:</span> MLLM, Visual prompts
+      </div> -->
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/mGPT.jpg" alt="Lumina-mGPT" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="https://arxiv.org/abs/2408.02657" class="paper-title">Lumina-mgpt: Illuminate flexible photorealistic text-to-image generation with multimodal generative pretraining</a>
+      <div class="authors">
+        Dongyang Liu*, Shitian Zhao*, Le Zhuo*, <span class="me">Weifeng Lin*</span>, Yu Qiao, Hongsheng Li, Peng Gao
+      </div>
+      <div class="venue">Report Preprint, 2024</div>
+      <div class="links-row">
+        <a href="https://arxiv.org/abs/2408.02657">[Paper]</a>
+        <a href="https://github.com/Alpha-VLLM/Lumina-mGPT">[Code]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/sphinx.jpg" alt="Sphinx-x" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="#" class="paper-title">Sphinx-X: Scaling data and parameters for a family of multi-modal large language models</a>
+      <div class="authors">
+        Dongyang Liu*, Renrui Zhang*, Longtian Qiu*, Siyuan Huang*, <span class="me">Weifeng Lin*</span>, Shitian Zhao, Shijie Geng, Ziyi Lin, Peng Jin, Kaipeng Zhang, Wenqi Shao, Chao Xu, Conghui He, Junjun He, Hao Shao, Pan Lu, Hongsheng Li, Yu Qiao, Peng Gao
+      </div>
+      <div class="venue">ICML, 2024</div>
+      <div class="links-row">
+        <a href="https://arxiv.org/pdf/2402.05935">[Paper]</a>
+        <a href="https://github.com/Alpha-VLLM/LLaMA2-Accessory">[Code]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/M2SD.jpg" alt="M2SD" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28129" class="paper-title">M2SD: Multiple Mixing Self-Distillation for Few-Shot Class-Incremental Learning</a>
+      <div class="authors">
+        Jinhao Lin, Ziheng Wu, <span class="me">Weifeng Lin</span>, Ziheng Wu, Jun Huang, RongHua Luo
+      </div>
+      <div class="venue">AAAI, 2024</div>
+      <div class="links-row">
+        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28129">[Paper]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/smt.jpg" alt="SMT" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="https://arxiv.org/abs/2307.08579" class="paper-title">Scale-Aware Modulation Meet Transformer</a>
+      <div class="authors">
+        <span class="me">Weifeng Lin</span>, Ziheng Wu, Jiayu Chen, Jun Huang, Lianwen Jin
+      </div>
+      <div class="venue">ICCV, 2023</div>
+      <div class="links-row">
+        <a href="https://arxiv.org/abs/2307.08579">[Paper]</a>
+        <a href="https://github.com/AFeng-x/SMT">[Code]</a>
+      </div>
+    </div>
+  </div>
 
 
-<table width="50%" align="center" border="0" cellpadding="20">
-  <tbody>
-    <tr>
-      <td width="50%" valign="center"></td>
-      <script type="text/javascript" id="clustrmaps"
-        src="//clustrmaps.com/map_v2.js?d=zEuGs9CDAXseJAka9KDNEQckDn_266DHUDK8xaS2Qu0&cl=ffffff&w=a"></script>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/rapid_diff.jpg" alt="Rapid Diffusion" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="https://aclanthology.org/2023.acl-industry.28.pdf" class="paper-title">Rapid Diffusion: Building Domain-Specific Text-to-Image Synthesizers with Fast Inference Speed</a>
+      <div class="authors">
+        Bingyan Liu*, <span class="me">Weifeng Lin*</span>, Zhongjie Duan, Chengyu Wang, Ziheng Wu, Zipeng Zhang, Kui Jia, Lianwen Jin, Cen Chen, Jun Huang
+      </div>
+      <div class="venue">ACL (Industry), 2023</div>
+      <div class="links-row">
+        <a href="https://aclanthology.org/2023.acl-industry.28.pdf">[Paper]</a>
+        <a href="https://github.com/alibaba/EasyNLP">[Code]</a>
+      </div>
+      <div class="tag-row">
+        <span class="keyword-label">Keywords:</span> Text-to-image latent diffusion models
+      </div>
+    </div>
+  </div>
 
-<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-  <tr>
-    <td>
+  <div class="paper-item">
+    <div class="paper-img-container">
+      <img src="images/mobile-NAS.jpg" alt="Mobile NAS" class="paper-img">
+    </div>
+    <div class="paper-text">
+      <a href="https://papers.bmvc2023.org/0375.pdf" class="paper-title">Building A Mobile Text Recognizer via Truncated SVD-based Knowledge Distillation-Guided NAS</a>
+      <div class="authors">
+        <span class="me">Weifeng Lin</span>, Canyu Xie, Dezhi Peng, Jiapeng Wang, Lianwen Jin, Wei Ding, Cong Yao, Mengchao He
+      </div>
+      <div class="venue">BMVC, 2023</div>
+      <div class="links-row">
+        <a href="https://papers.bmvc2023.org/0375.pdf">[Paper]</a>
+        <a href="https://github.com/AlibabaResearch/AdvancedLiterateMachinery/tree/main/OCR/LiteWeightOCR">[Code/Demo]</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section-title">Experience</div>
+
+  <div class="experience-item">
+    <div class="experience-left">
+      <div class="experience-title">
+        <a href="http://opengvlab.shlab.org.cn/">SenseTime AI</a>
+      </div>
+      <div class="experience-content">Research Intern, Robotics</div>
+    </div>
+    <div class="experience-right">
+      <div class="experience-time">2025.09 - 2026.01</div>
+      <div class="experience-location">Shenzhen, China</div>
+    </div>
+  </div>
+
+  <div class="experience-item">
+    <div class="experience-left">
+      <div class="experience-title">
+        <a href="http://opengvlab.shlab.org.cn/">Shanghai AI Lab</a>
+      </div>
+      <div class="experience-content">Research Intern, OpenGVLab</div>
+    </div>
+    <div class="experience-right">
+      <div class="experience-time">2024.01 - 2024.06</div>
+      <div class="experience-location">Shanghai, China</div>
+    </div>
+  </div>
+
+  <div class="experience-item">
+    <div class="experience-left">
+      <div class="experience-title">
+        <a href="https://www.alibabacloud.com/">Alibaba Cloud Intelligent</a>
+      </div>
+      <div class="experience-content">Research Intern, Machine Learning Platform for AI</div>
+    </div>
+    <div class="experience-right">
+      <div class="experience-time">2022.11 - 2023.12</div>
+      <div class="experience-location">Hangzhou, China</div>
+    </div>
+  </div>
+
+  <div class="section-title">Reviewer Service</div>
+
+  <div class="reviewer-item">Conference on Computer Vision and Pattern Recognition (CVPR) 2025</div>
+  <div class="reviewer-item">International Conference on Computer Vision (ICCV) 2025</div>
+  <div class="reviewer-item">International Conference on Machine Learning (ICML), 2025</div>
+  <div class="reviewer-item">International Conference on Learning Representations (ICLR), 2024, 2025</div>
+  <div class="reviewer-item">Conference on Neural Information Processing Systems (NeurIPS), 2024, 2025</div>
+  <div class="reviewer-item">AAAI Conference on Artificial Intelligence (AAAI) 2025</div>
+
+
+
+  <div class="map-container">
+    <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=080808&w=350&t=tt&d=Biz007_Pw8FVsAWycLRoKM_5XR_da9ccb8qGNbWVwnk&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080"></script>
     <br>
-    <p align="right">
-      <font size="2">
-      template adapted from <a href="https://jonbarron.info/"><font size="2">this awesome website</font></a>
-      <!-- <br> -->
-      <!-- Last updated: Mar 2023 -->
-    </font>
-    </p>
-    </td>
-  </tr>
-  </table>
+    <!-- <p style="font-size: 13px; color: #aaa;">
+      Template adapted from <a href="https://jonbarron.info/" style="color:#aaa; text-decoration: underline;">Jon Barron</a>.
+    </p> -->
+  </div>
 
 
+</div>
 
 </body>
 </html>
