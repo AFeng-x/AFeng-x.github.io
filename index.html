@@ -1,686 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Weifeng Lin | Home</title>
-  
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Weifeng Lin's Homepage">
-  
+  <meta name="description" content="Weifeng Lin's homepage. Ph.D. student at MMLab, CUHK working on interactive vision-language models, video generation, and robotics.">
+  <meta name="author" content="Weifeng Lin">
+  <meta property="og:title" content="Weifeng Lin | Home">
+  <meta property="og:description" content="Ph.D. student at MMLab, CUHK. Research in interactive vision-language models, video generation, and robotics.">
+  <meta property="og:image" content="images/avater.jpg">
+  <title>Weifeng Lin | Home</title>
+  <link rel="icon" href="data:,">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-  <style type="text/css">
-    :root {
-      --bg-color: #f4f8fb;        /* 极淡的蓝灰色背景，像淡淡的云 */
-      --card-bg: #ffffff;         /* 纯白内容卡片 */
-      --text-main: #2c3e50;       /* 深蓝灰，比纯黑更自然 */
-      --text-secondary: #546e7a;  /* 次级文字颜色 */
-      --accent-color: #0077b6;    /* 天蓝色，用于链接和强调 */
-      --accent-hover: #023e8a;    /* 深海蓝，用于悬停 */
-      --shadow-light: 0 4px 20px rgba(173, 216, 230, 0.2); /* 淡淡的蓝色阴影 */
-    }
-
-    /* --- 基础重置 --- */
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      margin: 0;
-      padding: 40px 20px;
-      line-height: 1.6;
-      font-size: 16px;
-      font-weight: 300;
-    }
-
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-      transition: color 0.2s ease;
-      font-weight: 400;
-    }
-
-    a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-    }
-
-    /* --- 容器 --- */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background-color: var(--card-bg);
-      padding: 50px 60px;
-      border-radius: 12px;
-      box-shadow: var(--shadow-light);
-    }
-
-    /* --- 头部简介 (Profile) --- */
-    .profile-section {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      margin-bottom: 0px;
-      border-bottom: 1px solid #eef2f5;
-      padding-bottom: 30px;
-    }
-
-    .profile-text {
-      flex: 1;
-    }
-
-    .name-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 36px;
-      font-weight: 600;
-      color: #000;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
-
-    .profile-photo-container {
-      width: 300px;
-      flex-shrink: 0;
-    }
-
-    .profile-photo {
-      width: 100%;
-      border-radius: 8px; /* 轻微圆角 */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-    }
-
-    .profile-photo:hover {
-      transform: scale(1.02);
-    }
-
-    .contact-links {
-      margin-top: 15px;
-      font-size: 15px;
-    }
-
-    /* --- 章节标题 --- */
-    .section-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-top: 15px;
-      margin-bottom: 30px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e0f2fe; /* 浅蓝色下划线 */
-      display: inline-block;
-    }
-
-    /* --- 论文列表样式 --- */
-    .paper-item {
-      display: flex;
-      gap: 30px;
-      margin-bottom: 35px;
-      animation: fadeIn 0.8s ease;
-    }
-
-    .paper-img-container {
-      width: 220px;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .paper-img {
-      width: 100%;
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border: 1px solid #f0f0f0;
-    }
-
-    .paper-item:hover .paper-img {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,119,182, 0.15); /* 悬停时泛起蓝光 */
-    }
-
-    .paper-text {
-      flex: 1;
-    }
-
-    .paper-title {
-      font-size: 17px;
-      font-weight: 500;
-      color: #000;
-      display: block;
-      line-height: 1.4;
-      margin-bottom: 6px;
-    }
-    
-    .paper-title:hover {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    .authors {
-      font-size: 15px;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
-    }
-
-    .me {
-      font-weight: 500;
-      color: var(--text-main);
-      border-bottom: 1px dashed var(--accent-color);
-    }
-
-    .venue {
-      font-style: italic;
-      color: #000;
-      font-weight: 400;
-    }
-
-    .tag-row {
-      margin-top: 8px;
-      font-size: 14px;
-    }
-
-    .links-row {
-      margin-top: 5px;
-      font-size: 14px;
-    }
-    
-    .links-row a {
-        margin-right: 10px;
-        font-weight: 500;
-    }
-
-    .keyword-label {
-      font-weight: 500;
-      color: var(--text-main);
-      font-size: 13px;
-    }
-
-    /* --- Experience 板块样式 --- */
-    .experience-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      padding: 15px 0;
-      border-bottom: 1px solid #eef2f5;
-      animation: fadeIn 0.8s ease;
-    }
-
-    .experience-item:last-of-type {
-      border-bottom: none;
-    }
-
-    .experience-left {
-      flex: 1;
-    }
-
-    .experience-title {
-      font-size: 17px;
-      font-weight: 600;
-      color: #000;
-      margin-bottom: 4px;
-    }
-
-    .experience-title a {
-      color: #000;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .experience-title a:hover {
-      color: var(--accent-color);
-    }
-
-    .experience-content {
-      font-size: 15px;
-      color: var(--text-secondary);
-    }
-
-    .experience-right {
-      text-align: right;
-      white-space: nowrap;
-      margin-left: 20px;
-    }
-
-    .experience-time {
-      font-size: 15px;
-      color: var(--text-secondary);
-      font-style: italic;
-      margin-bottom: 4px;
-    }
-
-    .experience-location {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    /* --- Reviewer Service 板块样式 --- */
-    .reviewer-item {
-      font-size: 15px;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
-      line-height: 1.6;
-    }
-
-    /* --- News 板块样式 --- */
-    .news-list {
-      list-style: none; /* 去掉默认样式 */
-      padding-left: 0;
-      margin: 0;
-    }
-    
-    .news-item {
-      display: flex;
-      margin-bottom: 12px;
-      font-size: 15px;
-      padding-left: 20px;
-      position: relative;
-    }
-    
-    .news-item::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #000;
-    }
-
-    .news-date {
-      font-weight: 400;
-      color: #000;
-      min-width: 90px;
-      flex-shrink: 0;
-    }
-    
-    .news-content {
-      color: var(--text-main);
-    }
-
-    /* --- 移动端适配 --- */
-    @media (max-width: 768px) {
-      body { padding: 10px; }
-      .container { padding: 30px 20px; }
-      .profile-section { flex-direction: column-reverse; text-align: center; }
-      .profile-photo-container { width: 160px; margin: 0 auto; }
-      .paper-item { flex-direction: column; gap: 15px; }
-      .paper-img-container { width: 100%; max-width: 300px; }
-    }
-
-    /* --- 简单的淡入动画 --- */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Clustrmaps 居中 */
-    .map-container {
-      margin-top: 60px;
-      text-align: center;
-      opacity: 0.8;
-      filter: grayscale(20%);
-      transition: filter 0.3s;
-    }
-    .map-container:hover {
-      filter: grayscale(0%);
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&amp;family=Raleway:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#publications">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+    </div>
+  </nav>
 
-<div class="container">
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Hi! I'm Weifeng LIN <span>(林炜丰)</span></h1>
+        <p class="hero-lead">
+          PhD at MMLab CUHK,<br>
+          Specialized in <span id="rotating-topic">Vision-Language-Model</span>.
+        </p>
+      </div>
+    </section>
 
-  <div class="profile-section">
-    <div class="profile-text">
-      <div style="text-align: center; margin-bottom: 30px;">
-        <div class="name-title">Weifeng Lin (林炜丰)</div>
+    <section id="about" class="section section-white">
+      <div class="section-inner about-grid">
+        <div class="portrait-wrap">
+          <img src="images/avater.jpg" alt="Portrait of Weifeng Lin" class="portrait">
+        </div>
+        <div class="about-copy">
+          <p class="section-kicker">About</p>
+          <p>
+            I am currently a second-year Ph.D. student at the
+            <a href="http://mmlab.ie.cuhk.edu.hk/">MMLab</a>, The Chinese University of Hong Kong (CUHK),
+            supervised by <a href="https://www.ee.cuhk.edu.hk/~hsli/">Hongsheng Li</a>.
+            I earned both my Bachelor's and Master's degrees from
+            <a href="https://www.scut.edu.cn/en//">South China University of Technology</a> in 2021 and 2024,
+            respectively, advised by <a href="http://www.dlvc-lab.net/lianwen/">Lianwen Jin</a>.
+          </p>
+          <p>
+            My research interests include interactive vision-language models, large-scale generative models,
+            Embodied AI, and World Models. I am also committed to open-source projects and believe they are
+            a cornerstone for sustainable growth in the AI community.
+          </p>
+          <div class="profile-links">
+            <a href="mailto:wflin37@gmail.com" aria-label="Email" title="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 6h16v12H4z"></path>
+                <path d="m4 7 8 6 8-6"></path>
+              </svg>
+            </a>
+            <a href="https://scholar.google.com/citations?user=8iCZxIAAAAAJ" aria-label="Google Scholar" title="Google Scholar">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 2 8l10 5 10-5-10-5Z"></path>
+                <path d="M6 10.5v4.2c0 1.5 2.7 2.8 6 2.8s6-1.3 6-2.8v-4.2"></path>
+                <path d="M22 8v6"></path>
+              </svg>
+            </a>
+            <a href="https://github.com/Afeng-x" aria-label="GitHub" title="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="profile-icon-fill">
+                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.4 7.86 10.92.58.1.79-.25.79-.56v-2.08c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.29-1.68-1.29-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.04 1.76 2.72 1.25 3.38.96.11-.75.41-1.25.74-1.54-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.18 1.18A11.1 11.1 0 0 1 12 6.08c.98 0 1.96.13 2.88.39 2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.26 5.68.42.36.79 1.07.79 2.16v3.2c0 .31.21.67.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path>
+              </svg>
+            </a>
+            <a href="https://x.com/WeifengLin_07" aria-label="Twitter X" title="Twitter X">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4l16 16"></path>
+                <path d="M20 4 4 20"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
-      <p>
-        I am currently a second-year Ph.D. student at the <a href="http://mmlab.ie.cuhk.edu.hk/">MMLab</a>, The Chinese University of Hong Kong (CUHK), supervised by <a href="https://www.ee.cuhk.edu.hk/~hsli/">Hongsheng Li</a>.
-        I earned both my Bachelor's and Master's degrees from the <a href="https://www.scut.edu.cn/en//">South China University of Technology</a> in 2021 and 2024, respectively, being advised by <a href="http://www.dlvc-lab.net/lianwen/">Lianwen Jin</a>.
-      </p>
-      <p>
-        <b>Research Interest</b>: Interative Vision-Language Models, the Large-scale Video Generation Model, and the Intersection of Robotics.
-        I am also deeply committed to contributing to open-source projects, believing they are a cornerstone for the sustainable growth of the AI community.
-      </p>
+    </section>
 
-      <p>
-        <b>Email</b>: wflin37@gmail.com
-      </p>
-      
-      <div class="contact-links">
-        <a href="mailto:wflin37@gmail.com">Email</a> &nbsp;/&nbsp;
-        <a href="https://scholar.google.com/citations?user=8iCZxIAAAAAJ">Google Scholar</a> &nbsp;/&nbsp;
-        <a href="https://github.com/Afeng-x">Github</a> &nbsp;/&nbsp;
-        <!-- <a href="https://www.linkedin.com/in/weifeng-lin-1a76783a8/">LinkedIn</a> &nbsp;/&nbsp; -->
-        <a href="https://x.com/WeifengLin_07">Twitter (X)</a> &nbsp;/&nbsp;
-        <!-- <a href="#">CV (Coming Soon)</a> -->
-      </div>
-    </div>
-    
-    <div class="profile-photo-container">
-      <img src="images/avater.jpg" alt="Weifeng Lin" class="profile-photo">
-    </div>
-  </div>
+    <section id="publications" class="section section-gray">
+      <div class="section-inner">
+        <div class="section-heading centered">
+          <p class="section-kicker">Research</p>
+          <h2>Selected Publications</h2>
+        </div>
 
-
-  <div class="section-title">News</div>
-  
-  <ul class="news-list">
-    <li class="news-item">
-      <span class="news-date">[09/2025]</span>
-      <span class="news-content">Three papers have accepted by NeurIPS 2025</span>
-    </li>
-    <li class="news-item">
-      <span class="news-date">[08/2025]</span>
-      <span class="news-content">Received Hong Kong Postgraduate Scholoarship, 2025</span>
-    </li>
-    <li class="news-item">
-      <span class="news-date">[01/2025]</span>
-      <span class="news-content">Two papers have accepted by ICLR 2025</span>
-    </li>
-    <li class="news-item">
-      <span class="news-date">[05/2024]</span>
-      <span class="news-content">Invited talk on <a href="https://www.idea.edu.cn/">IDEA-CVR</a> about "Draw-and-Understand", a project on visual prompting for VLMs.</span>
-    </li>
-    <li class="news-item">
-      <span class="news-date">[12/2023]</span>
-      <span class="news-content">Alibaba Cloud Outstanding Research Intern (Top 5% Award)</span>
-    </li>
-    <li class="news-item">
-      <span class="news-date">[06/2023]</span>
-      <span class="news-content">Invited talk on <a href="https://www.techbeat.net/">TechBeat</a> for "Scale-Aware Modulation Meet Transformer".</span>
-    </li>
-  </ul>
-
-  <div class="section-title">Selected Publications</div>
-
-  <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/pam.jpg" alt="PAM" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="https://arxiv.org/abs/2506.05302" class="paper-title">Perceive Anything: Recognize, Explain, Caption, and Segment Anything in Images and Videos</a>
-      <div class="authors">
-        <span class="me">Weifeng Lin</span>, Xinyu Wei, Ruichuan An, Tianhe Ren, Tingwei Chen, Renrui Zhang, Ziyu Guo, Wentao Zhang, Lei Zhang, Hongsheng Li
-      </div>
-      <div class="venue">NeurIPS, 2025</div>
-      <div class="links-row">
-        <a href="https://arxiv.org/abs/2506.05302">[Paper]</a>
-        <a href="https://perceive-anything.github.io/">[Homepage]</a>
-        <a href="https://github.com/Perceive-Anything/PAM">[Code]</a>
-        <a href="https://huggingface.co/datasets/Perceive-Anything/PAM-data">[Dataset]</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/mini-cot.jpg" alt="MINT-CoT" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="https://arxiv.org/pdf/2506.05331" class="paper-title">MINT-CoT: Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning</a>
-      <div class="authors">
-        Xinyan Chen, Renrui Zhang, Dongzhi Jiang, Aojun Zhou, Shilin Yan, <span class="me">Weifeng Lin</span>, Hongsheng Li
-      </div>
-      <div class="venue">NeurIPS, 2025</div>
-      <div class="links-row">
-        <a href="https://arxiv.org/pdf/2506.05331">[Paper]</a>
-        <a href="https://github.com/xinyan-cxy/MINT-CoT">[Code]</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/ui-genie.jpg" alt="UI-Genie" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="https://arxiv.org/pdf/2505.21496" class="paper-title">UI-Genie: A Self-Improving Approach for Iteratively Boosting MLLM-based Mobile GUI Agents</a>
-      <div class="authors">
-        Han Xiao, Guozhi Wang, Yuxiang Chai, Zimu Lu, <span class="me">Weifeng Lin</span>, Hao He, Lue Fan, Liuyang Bian, Rui Hu, Liang Liu, Shuai Ren, Yafei Wen, Xiaoxin Chen, Aojun Zhou, Hongsheng Li
-      </div>
-      <div class="venue">NeurIPS, 2025</div>
-      <div class="links-row">
-        <a href="https://arxiv.org/pdf/2505.21496">[Paper]</a>
-        <a href="https://github.com/Euphoria16/UI-Genie">[Code]</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/pixwizard.jpg" alt="PixWizard" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="https://arxiv.org/abs/2409.15278" class="paper-title">PixWizard: Versatile Image-to-Image Visual Assistant with Open-Language Instructions</a>
-      <div class="authors">
-        <span class="me">Weifeng Lin</span>, Xinyu Wei, Renrui Zhang, Le Zhuo, Shitian Zhao, Siyuan Huang, Junlin Xie, Yu Qiao, Peng Gao, Hongsheng Li
-      </div>
-      <div class="venue">ICLR, 2025</div>
-      <div class="links-row">
-        <a href="https://arxiv.org/abs/2409.15278">[Paper]</a>
-        <a href="https://github.com/AFeng-x/PixWizard">[Code]</a>
-      </div>
-      <!-- <div class="tag-row">
-        <span class="keyword-label">Keywords:</span> Image Generation, Image-to-Image, Visual Assistant
-      </div> -->
-    </div>
-  </div>
-
-  <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/DnU.png" alt="Draw-and-Understand" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="https://arxiv.org/abs/2403.20271" class="paper-title">Draw-and-Understand: Leveraging Visual Prompts to Enable MLLMs to Comprehend What You Want</a>
-      <div class="authors">
-        <span class="me">Weifeng Lin</span>, Xinyu Wei, Renrui Zhang, Ruichuan An, Peng Gao, Bocheng Zou, Yulin Luo, Siyuan Huang, Shanghang Zhang, Hongsheng Li
-      </div>
-      <div class="venue">ICLR, 2025</div>
-      <div class="links-row">
-        <a href="https://arxiv.org/abs/2403.20271">[Paper]</a>
-        <a href="https://github.com/AFeng-x/Draw-and-Understand">[Code]</a>
-      </div>
-      <!-- <div class="tag-row">
-        <span class="keyword-label">Keywords:</span> MLLM, Visual prompts
-      </div> -->
-    </div>
-  </div>
-
-  <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/mGPT.jpg" alt="Lumina-mGPT" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="https://arxiv.org/abs/2408.02657" class="paper-title">Lumina-mgpt: Illuminate flexible photorealistic text-to-image generation with multimodal generative pretraining</a>
-      <div class="authors">
-        Dongyang Liu*, Shitian Zhao*, Le Zhuo*, <span class="me">Weifeng Lin*</span>, Yu Qiao, Hongsheng Li, Peng Gao
-      </div>
-      <div class="venue">Report Preprint, 2024</div>
-      <div class="links-row">
-        <a href="https://arxiv.org/abs/2408.02657">[Paper]</a>
-        <a href="https://github.com/Alpha-VLLM/Lumina-mGPT">[Code]</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/sphinx.jpg" alt="Sphinx-x" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="#" class="paper-title">Sphinx-X: Scaling data and parameters for a family of multi-modal large language models</a>
-      <div class="authors">
-        Dongyang Liu*, Renrui Zhang*, Longtian Qiu*, Siyuan Huang*, <span class="me">Weifeng Lin*</span>, Shitian Zhao, Shijie Geng, Ziyi Lin, Peng Jin, Kaipeng Zhang, Wenqi Shao, Chao Xu, Conghui He, Junjun He, Hao Shao, Pan Lu, Hongsheng Li, Yu Qiao, Peng Gao
-      </div>
-      <div class="venue">ICML, 2024</div>
-      <div class="links-row">
-        <a href="https://arxiv.org/pdf/2402.05935">[Paper]</a>
-        <a href="https://github.com/Alpha-VLLM/LLaMA2-Accessory">[Code]</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/M2SD.jpg" alt="M2SD" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28129" class="paper-title">M2SD: Multiple Mixing Self-Distillation for Few-Shot Class-Incremental Learning</a>
-      <div class="authors">
-        Jinhao Lin, Ziheng Wu, <span class="me">Weifeng Lin</span>, Ziheng Wu, Jun Huang, RongHua Luo
-      </div>
-      <div class="venue">AAAI, 2024</div>
-      <div class="links-row">
-        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28129">[Paper]</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/smt.jpg" alt="SMT" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="https://arxiv.org/abs/2307.08579" class="paper-title">Scale-Aware Modulation Meet Transformer</a>
-      <div class="authors">
-        <span class="me">Weifeng Lin</span>, Ziheng Wu, Jiayu Chen, Jun Huang, Lianwen Jin
-      </div>
-      <div class="venue">ICCV, 2023</div>
-      <div class="links-row">
-        <a href="https://arxiv.org/abs/2307.08579">[Paper]</a>
-        <a href="https://github.com/AFeng-x/SMT">[Code]</a>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/rapid_diff.jpg" alt="Rapid Diffusion" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="https://aclanthology.org/2023.acl-industry.28.pdf" class="paper-title">Rapid Diffusion: Building Domain-Specific Text-to-Image Synthesizers with Fast Inference Speed</a>
-      <div class="authors">
-        Bingyan Liu*, <span class="me">Weifeng Lin*</span>, Zhongjie Duan, Chengyu Wang, Ziheng Wu, Zipeng Zhang, Kui Jia, Lianwen Jin, Cen Chen, Jun Huang
-      </div>
-      <div class="venue">ACL (Industry), 2023</div>
-      <div class="links-row">
-        <a href="https://aclanthology.org/2023.acl-industry.28.pdf">[Paper]</a>
-        <a href="https://github.com/alibaba/EasyNLP">[Code]</a>
-      </div>
-      <div class="tag-row">
-        <span class="keyword-label">Keywords:</span> Text-to-image latent diffusion models
-      </div>
-    </div>
-  </div> -->
-
-  <!-- <div class="paper-item">
-    <div class="paper-img-container">
-      <img src="images/mobile-NAS.jpg" alt="Mobile NAS" class="paper-img">
-    </div>
-    <div class="paper-text">
-      <a href="https://papers.bmvc2023.org/0375.pdf" class="paper-title">Building A Mobile Text Recognizer via Truncated SVD-based Knowledge Distillation-Guided NAS</a>
-      <div class="authors">
-        <span class="me">Weifeng Lin</span>, Canyu Xie, Dezhi Peng, Jiapeng Wang, Lianwen Jin, Wei Ding, Cong Yao, Mengchao He
-      </div>
-      <div class="venue">BMVC, 2023</div>
-      <div class="links-row">
-        <a href="https://papers.bmvc2023.org/0375.pdf">[Paper]</a>
-        <a href="https://github.com/AlibabaResearch/AdvancedLiterateMachinery/tree/main/OCR/LiteWeightOCR">[Code/Demo]</a>
-      </div>
-    </div>
-  </div> -->
-
-
-  <div class="section-title">Experience</div>
-
-  <div class="experience-item">
-    <div class="experience-left">
-      <div class="experience-title">
-        <a href="#">SenseTime AI</a>
-      </div>
-      <div class="experience-content">Research Intern, Robotics</div>
-    </div>
-    <div class="experience-right">
-      <div class="experience-time">2025.09 - 2026.01</div>
-      <div class="experience-location">Shenzhen, China</div>
-    </div>
-  </div>
-
-  <div class="experience-item">
-    <div class="experience-left">
-      <div class="experience-title">
-        <a href="https://www.vivo.com.cn/">vivo AI</a>
-      </div>
-      <div class="experience-content">Research Intern, Agent</div>
-    </div>
-    <div class="experience-right">
-      <div class="experience-time">2024.11 - 2025.06</div>
-      <div class="experience-location">Shenzhen, China</div>
-    </div>
-  </div>
-
-
-  <div class="experience-item">
-    <div class="experience-left">
-      <div class="experience-title">
-        <a href="http://opengvlab.shlab.org.cn/">Shanghai AI Lab</a>
-      </div>
-      <div class="experience-content">Research Intern, OpenGVLab</div>
-    </div>
-    <div class="experience-right">
-      <div class="experience-time">2024.01 - 2024.06</div>
-      <div class="experience-location">Shanghai, China</div>
-    </div>
-  </div>
-
-  <div class="experience-item">
-    <div class="experience-left">
-      <div class="experience-title">
-        <a href="https://www.alibabacloud.com/">Alibaba Cloud Intelligent</a>
-      </div>
-      <div class="experience-content">Research Intern, Machine Learning Platform for AI</div>
-    </div>
-    <div class="experience-right">
-      <div class="experience-time">2022.11 - 2023.12</div>
-      <div class="experience-location">Hangzhou, China</div>
-    </div>
-  </div>
-
-  <div class="section-title">Reviewer Service</div>
-
-  <div class="reviewer-item">Conference on Computer Vision and Pattern Recognition (CVPR), 2025</div>
-  <div class="reviewer-item">International Conference on Computer Vision (ICCV), 2025</div>
-  <div class="reviewer-item">International Conference on Machine Learning (ICML), 2025</div>
-  <div class="reviewer-item">International Conference on Learning Representations (ICLR), 2024, 2025</div>
-  <div class="reviewer-item">Conference on Neural Information Processing Systems (NeurIPS), 2024, 2025</div>
-  <div class="reviewer-item">AAAI Conference on Artificial Intelligence (AAAI), 2025</div>
-
-
-  <table width="40%" align="center" border="0" cellspacing="0" cellpadding="20">
-  <tbody>
-      <tr>
-          <td style="padding:0px">
-              <br>
-              <br>
-              <div>
-                  <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=gzI78MmzjdOQhrEkjeJUcGdUz4a4UjLApSkUMCKymig&cl=ffffff&w=a"></script>
+        <div class="paper-list">
+          <article class="paper-item">
+            <a class="paper-image" href="https://perceive-anything.github.io/">
+              <img src="images/pam.jpg" alt="Perceive Anything project thumbnail" loading="lazy">
+            </a>
+            <div class="paper-copy">
+              <a href="https://arxiv.org/abs/2506.05302" class="paper-title">Perceive Anything: Recognize, Explain, Caption, and Segment Anything in Images and Videos</a>
+              <p class="authors"><strong>Weifeng Lin</strong>, Xinyu Wei, Ruichuan An, Tianhe Ren, Tingwei Chen, Renrui Zhang, Ziyu Guo, Wentao Zhang, Lei Zhang, Hongsheng Li</p>
+              <p class="venue">NeurIPS 2025</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2506.05302">Paper</a>
+                <a href="https://perceive-anything.github.io/">Homepage</a>
+                <a href="https://github.com/Perceive-Anything/PAM">Code</a>
+                <a href="https://huggingface.co/datasets/Perceive-Anything/PAM-data">Dataset</a>
               </div>
-          </td>
-      </tr>
-  </tbody>
-</table>
+            </div>
+          </article>
 
-  <!-- <div class="map-container">
-    <p style="font-size: 13px; color: #aaa;">
-      Template adapted from <a href="https://jonbarron.info/" style="color:#aaa; text-decoration: underline;">here</a>.
-    </p>
-  </div> -->
+          <!-- <article class="paper-item">
+            <a class="paper-image" href="https://arxiv.org/pdf/2506.05331">
+              <img src="images/mini-cot.jpg" alt="MINT-CoT project thumbnail" loading="lazy">
+            </a>
+            <div class="paper-copy">
+              <a href="https://arxiv.org/pdf/2506.05331" class="paper-title">MINT-CoT: Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning</a>
+              <p class="authors">Xinyan Chen, Renrui Zhang, Dongzhi Jiang, Aojun Zhou, Shilin Yan, <strong>Weifeng Lin</strong>, Hongsheng Li</p>
+              <p class="venue">NeurIPS 2025</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/pdf/2506.05331">Paper</a>
+                <a href="https://github.com/xinyan-cxy/MINT-CoT">Code</a>
+              </div>
+            </div>
+          </article> -->
 
-</div>
+          <!-- <article class="paper-item">
+            <a class="paper-image" href="https://arxiv.org/pdf/2505.21496">
+              <img src="images/ui-genie.jpg" alt="UI-Genie project thumbnail" loading="lazy">
+            </a>
+            <div class="paper-copy">
+              <a href="https://arxiv.org/pdf/2505.21496" class="paper-title">UI-Genie: A Self-Improving Approach for Iteratively Boosting MLLM-based Mobile GUI Agents</a>
+              <p class="authors">Han Xiao, Guozhi Wang, Yuxiang Chai, Zimu Lu, <strong>Weifeng Lin</strong>, Hao He, Lue Fan, Liuyang Bian, Rui Hu, Liang Liu, Shuai Ren, Yafei Wen, Xiaoxin Chen, Aojun Zhou, Hongsheng Li</p>
+              <p class="venue">NeurIPS 2025</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/pdf/2505.21496">Paper</a>
+                <a href="https://github.com/Euphoria16/UI-Genie">Code</a>
+              </div>
+            </div>
+          </article> -->
 
+          <article class="paper-item">
+            <a class="paper-image" href="https://arxiv.org/abs/2409.15278">
+              <img src="images/pixwizard.jpg" alt="PixWizard project thumbnail" loading="lazy">
+            </a>
+            <div class="paper-copy">
+              <a href="https://arxiv.org/abs/2409.15278" class="paper-title">PixWizard: Versatile Image-to-Image Visual Assistant with Open-Language Instructions</a>
+              <p class="authors"><strong>Weifeng Lin</strong>, Xinyu Wei, Renrui Zhang, Le Zhuo, Shitian Zhao, Siyuan Huang, Junlin Xie, Yu Qiao, Peng Gao, Hongsheng Li</p>
+              <p class="venue">ICLR 2025</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2409.15278">Paper</a>
+                <a href="https://github.com/AFeng-x/PixWizard">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="paper-item">
+            <a class="paper-image" href="https://arxiv.org/abs/2403.20271">
+              <img src="images/DnU.png" alt="Draw-and-Understand project thumbnail" loading="lazy">
+            </a>
+            <div class="paper-copy">
+              <a href="https://arxiv.org/abs/2403.20271" class="paper-title">Draw-and-Understand: Leveraging Visual Prompts to Enable MLLMs to Comprehend What You Want</a>
+              <p class="authors"><strong>Weifeng Lin</strong>, Xinyu Wei, Renrui Zhang, Ruichuan An, Peng Gao, Bocheng Zou, Yulin Luo, Siyuan Huang, Shanghang Zhang, Hongsheng Li</p>
+              <p class="venue">ICLR 2025</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2403.20271">Paper</a>
+                <a href="https://github.com/AFeng-x/Draw-and-Understand">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="paper-item">
+            <a class="paper-image" href="https://arxiv.org/abs/2408.02657">
+              <img src="images/mGPT.jpg" alt="Lumina-mGPT project thumbnail" loading="lazy">
+            </a>
+            <div class="paper-copy">
+              <a href="https://arxiv.org/abs/2408.02657" class="paper-title">Lumina-mGPT: Illuminate Flexible Photorealistic Text-to-Image Generation with Multimodal Generative Pretraining</a>
+              <p class="authors">Dongyang Liu*, Shitian Zhao*, Le Zhuo*, <strong>Weifeng Lin*</strong>, Yu Qiao, Hongsheng Li, Peng Gao</p>
+              <p class="venue">IJCV 2025</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2408.02657">Paper</a>
+                <a href="https://github.com/Alpha-VLLM/Lumina-mGPT">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="paper-item">
+            <a class="paper-image" href="https://arxiv.org/pdf/2402.05935">
+              <img src="images/sphinx.jpg" alt="Sphinx-X project thumbnail" loading="lazy">
+            </a>
+            <div class="paper-copy">
+              <a href="https://arxiv.org/pdf/2402.05935" class="paper-title">Sphinx-X: Scaling Data and Parameters for a Family of Multi-modal Large Language Models</a>
+              <p class="authors">Dongyang Liu*, Renrui Zhang*, Longtian Qiu*, Siyuan Huang*, <strong>Weifeng Lin*</strong>, Shitian Zhao, Shijie Geng, Ziyi Lin, Peng Jin, Kaipeng Zhang, Wenqi Shao, Chao Xu, Conghui He, Junjun He, Hao Shao, Pan Lu, Hongsheng Li, Yu Qiao, Peng Gao</p>
+              <p class="venue">ICML 2024</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/pdf/2402.05935">Paper</a>
+                <a href="https://github.com/Alpha-VLLM/LLaMA2-Accessory">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- <article class="paper-item">
+            <a class="paper-image" href="https://ojs.aaai.org/index.php/AAAI/article/view/28129">
+              <img src="images/M2SD.jpg" alt="M2SD project thumbnail" loading="lazy">
+            </a>
+            <div class="paper-copy">
+              <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28129" class="paper-title">M2SD: Multiple Mixing Self-Distillation for Few-Shot Class-Incremental Learning</a>
+              <p class="authors">Jinhao Lin, Ziheng Wu, <strong>Weifeng Lin</strong>, Ziheng Wu, Jun Huang, RongHua Luo</p>
+              <p class="venue">AAAI 2024</p>
+              <div class="paper-links">
+                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/28129">Paper</a>
+              </div>
+            </div>
+          </article> -->
+
+          <article class="paper-item">
+            <a class="paper-image" href="https://arxiv.org/abs/2307.08579">
+              <img src="images/smt.jpg" alt="Scale-Aware Modulation Meet Transformer project thumbnail" loading="lazy">
+            </a>
+            <div class="paper-copy">
+              <a href="https://arxiv.org/abs/2307.08579" class="paper-title">Scale-Aware Modulation Meet Transformer</a>
+              <p class="authors"><strong>Weifeng Lin</strong>, Ziheng Wu, Jiayu Chen, Jun Huang, Lianwen Jin</p>
+              <p class="venue">ICCV 2023</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2307.08579">Paper</a>
+                <a href="https://github.com/AFeng-x/SMT">Code</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="publication-actions">
+          <a class="main-btn" href="publications.html">View full paper list</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section section-white">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="section-kicker">Path</p>
+          <h2>Experience</h2>
+        </div>
+        <div class="experience-list">
+          <article class="experience-item">
+            <div>
+              <h3><a href="#">SenseTime AI</a></h3>
+              <p>Research Intern, Robotics</p>
+            </div>
+            <div class="experience-meta">
+              <time>2025.09 - 2026.05</time>
+              <span>Shenzhen, China</span>
+            </div>
+          </article>
+          <article class="experience-item">
+            <div>
+              <h3><a href="http://opengvlab.shlab.org.cn/">Shanghai AI Lab</a></h3>
+              <p>Research Intern, OpenGVLab</p>
+            </div>
+            <div class="experience-meta">
+              <time>2024.01 - 2024.06</time>
+              <span>Shanghai, China</span>
+            </div>
+          </article>
+          <article class="experience-item">
+            <div>
+              <h3><a href="https://www.alibabacloud.com/">Alibaba Cloud Intelligent</a></h3>
+              <p>Research Intern, Machine Learning Platform for AI</p>
+            </div>
+            <div class="experience-meta">
+              <time>2022.11 - 2023.12</time>
+              <span>Hangzhou, China</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-gray">
+      <div class="section-inner">
+        <div class="section-heading centered">
+          <p class="section-kicker">Projects</p>
+          <h2>Projects</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <a class="project-visual project-visual-pam" href="https://perceive-anything.github.io/" aria-label="Perceive Anything homepage">
+              <span class="project-number">01</span>
+            </a>
+            <div class="project-content">
+              <h3><a href="https://perceive-anything.github.io/">Perceive Anything</a></h3>
+              <p>Recognize, explain, caption, and segment anything in images and videos.</p>
+              <div class="project-meta">
+                <a href="https://perceive-anything.github.io/">Homepage</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a class="project-visual project-visual-dnu" href="https://draw-and-understand.github.io/" aria-label="Draw-and-Understand homepage">
+              <span class="project-number">02</span>
+            </a>
+            <div class="project-content">
+              <h3><a href="https://draw-and-understand.github.io/">Draw-and-Understand</a></h3>
+              <p>Visual prompting for multimodal large language models.</p>
+              <div class="project-meta">
+                <a href="https://draw-and-understand.github.io/">Homepage</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>Weifeng Lin &copy; 2026</p>
+      <div class="visitor-map" aria-label="Visitor map">
+        <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=gzI78MmzjdOQhrEkjeJUcGdUz4a4UjLApSkUMCKymig&amp;cl=ffffff&amp;w=a"></script>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector(".site-nav");
+    const topics = [
+      "Vision-Language-Model",
+      "Generative AI",
+      "Embodied AI",
+      "World Model"
+    ];
+    const topicEl = document.getElementById("rotating-topic");
+    let topicIndex = 0;
+
+    const updateNav = () => {
+      nav.classList.toggle("is-scrolled", window.scrollY > 48);
+    };
+
+    const scrollToHash = (hash, smooth = true) => {
+      if (!hash || hash === "#") return false;
+      const target = document.querySelector(hash);
+      if (!target) return false;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const navOffset = nav.getBoundingClientRect().height + 16;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - navOffset;
+      const scrollTop = Math.max(targetTop, 0);
+      if (smooth && !prefersReducedMotion) {
+        window.scrollTo({ top: scrollTop, behavior: "smooth" });
+      } else {
+        document.documentElement.scrollTop = scrollTop;
+        document.body.scrollTop = scrollTop;
+        window.scrollTo(0, scrollTop);
+      }
+      return true;
+    };
+
+    const syncHashScroll = () => {
+      if (!window.location.hash) return;
+      [0, 120, 480].forEach((delay) => {
+        window.setTimeout(() => {
+          if (scrollToHash(window.location.hash, false)) {
+            updateNav();
+          }
+        }, delay);
+      });
+    };
+
+    document.querySelectorAll('.site-nav a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const hash = link.getAttribute("href");
+        if (scrollToHash(hash, false)) {
+          event.preventDefault();
+          window.history.pushState(null, "", hash);
+          updateNav();
+        }
+      });
+    });
+
+    window.addEventListener("scroll", updateNav, { passive: true });
+    window.addEventListener("load", () => {
+      updateNav();
+      syncHashScroll();
+    });
+    updateNav();
+    syncHashScroll();
+
+    window.setInterval(() => {
+      topicEl.classList.add("is-changing");
+      window.setTimeout(() => {
+        topicIndex = (topicIndex + 1) % topics.length;
+        topicEl.textContent = topics[topicIndex];
+        topicEl.classList.remove("is-changing");
+      }, 180);
+    }, 2200);
+  </script>
 </body>
 </html>
