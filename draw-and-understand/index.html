@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Draw-and-Understand: Leveraging Visual Prompts to Enable MLLMs to Comprehend What You Want">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Draw-and-Understand: Leveraging Visual Prompts to Enable MLLMs to Comprehend What You Want</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  <link rel="icon" type="image/x-icon" href="static/images/sphinx-v-logo.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/sphinx-v-logo.ico">
+
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+<a class="personal-home-link" href="../index.html">HOME</a>
+
+<!-- Paper Title and Author -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">🎨 Draw-and-Understand: Leveraging Visual Prompts to Enable MLLMs to Comprehend What You Want</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block corresponding-author">
+              <a href="">Weifeng Lin</a><sup>1</sup>,
+            </span>
+            <span class="author-block corresponding-author">
+              <a href="">Xinyu Wei</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Ruichuan An</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Peng Gao</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Bocheng Zou</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Yulin Luo</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Siyuan Huang</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+              <a href="">Shanghang Zhang</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+              <a href="">Hongsheng Li</a><sup>5</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors" style="margin-top: 15px;">
+            <div style="margin-bottom: 8px;">
+              <span class="author-block" style="margin-right: 25px;"><sup>1</sup>Shanghai AI Laboratory</span>
+              <span class="author-block" style="margin-right: 25px;"><sup>2</sup>Peking University</span>
+              <span class="author-block"><sup>3</sup>Xi'an Jiaotong University</span>
+            </div>
+            <div>
+              <span class="author-block" style="margin-right: 25px;"><sup>4</sup>University of Wisconsin-Madison</span>
+              <span class="author-block"><sup>5</sup>The Chinese University of Hong Kong</span>
+            </div>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Arxiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.20271"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M7 3h7l5 5v13H7z"></path>
+                      <path d="M14 3v5h5"></path>
+                      <path d="M10 13h6"></path>
+                      <path d="M10 17h4"></path>
+                    </svg>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Gradio Link. -->
+              <!-- <span class="link-block">
+                  <a href="http://106.14.2.150:10020/"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <img src="static/images/demo.svg" alt="Model" style="width: 20px; height: 20px;">
+                      </span>
+                      <span>Demo</span>
+                  </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/AFeng-x/Draw-and-Understand"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <svg class="button-icon button-icon-fill" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.4 7.86 10.92.58.1.79-.25.79-.56v-2.08c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.29-1.68-1.29-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.04 1.76 2.72 1.25 3.38.96.11-.75.41-1.25.74-1.54-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.18 1.18A11.1 11.1 0 0 1 12 6.08c.98 0 1.96.13 2.88.39 2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.26 5.68.42.36.79 1.07.79 2.16v3.2c0 .31.21.67.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path>
+                    </svg>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- MDVP-Data Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/Afeng-x/Draw-and-Understand/tree/main/stage_2_fine-tuning/MDVP-Data"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true">
+                      <ellipse cx="12" cy="5" rx="7" ry="3"></ellipse>
+                      <path d="M5 5v6c0 1.66 3.13 3 7 3s7-1.34 7-3V5"></path>
+                      <path d="M5 11v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6"></path>
+                    </svg>
+                  </span>
+                  <span>MDVP-Data</span>
+                  </a>
+              </span>
+              <!-- MDVP-Bench Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/Afeng-x/Draw-and-Understand/tree/main/MDVP-bench"
+                   class="external-link button is-normal is-rounded is-dark">
+                   <span class="icon">
+                    <img src="static/images/wrench.svg" alt="Gradio Logo" style="width: 18px; height: 18px;">
+                    </span>
+                  <span>MDVP-Bench</span>
+                  </a>
+              </span>
+              <!-- Model Link -->
+              <span class="link-block">
+                <a href="https://huggingface.co/Afeng-x/SPHINX-V-Model"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="static/images/model.svg" alt="Model" style="width: 22px; height: 22px;">
+                  </span>
+                  <span>Model</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Rolling Banner for examples -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel" style="flex-wrap: nowrap;">
+        <div class="item example-2">
+          <img src="static/images/example-2.png" alt="arch" style="height: auto; width: auto;">
+        </div>
+        <div class="item example-1">
+          <img src="static/images/example-1.png" alt="arch" style="height: auto; width: auto;">
+        </div>
+        <div class="item example-3">
+          <img src="static/images/example-3.png" alt="arch" style="height: auto; width: auto;">
+        </div>
+        <div class="item example-4">
+          <img src="static/images/example-4.png" alt="arch" style="height: auto; width: auto;">
+        </div>
+        <div class="item example-5">
+          <img src="static/images/example-5.png" alt="arch" style="height: auto; width: auto;">
+        </div>
+        <div class="item example-6">
+          <img src="static/images/example-6.png" alt="arch" style="height: auto; width: auto;">
+        </div>
+      </div>
+      <p class="hero-centered-text"> ... slide to see more examples ...</p>
+    </div>
+  </div>
+</section>
+		<script>
+			bulmaCarousel.attach('#results-carousel', {
+				slidesToScroll: 1,
+				slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        loop: true
+			});
+</script>
+
+
+<!-- Paper Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present the <span class="sphinx-v">Draw-and-Understand</span> framework, exploring how to integrate visual prompting understanding capabilities
+            into Multimodal Large Language Models (MLLMs). Visual prompts allow users to interact through multi-modal instructions,
+            enhancing the models' interactivity and fine-grained image comprehension. In this framework, we propose a general architecture
+            adaptable to different pre-trained MLLMs, enabling it to recognize various types of visual prompts (such as points, bounding boxes,
+            and free-form shapes) alongside language understanding.
+          </p>
+          <p>
+            Additionally, we introduce <span class='mdvp-data'>MDVP-Instruct-Data</span>, a multi-domain dataset featuring <b>🔥1.2 million {image, visual prompt, text} triplets</b>,
+            including natural images, document images, scene text images, mobile/web screenshots, and remote sensing images.
+            Building on this dataset, we introduce <span class='mdvp-data'>MDVP-Bench</span>, a challenging benchmark designed to
+            evaluate a model’s ability to understand visual prompting instructions.
+          </p>
+          <p>
+            The experimental results demonstrate that our framework can be easily and effectively applied to various MLLMs,
+            such as SPHINX-X and LLaVA. After training with <span class='mdvp-data'>MDVP-Instruct-Data</span> and image-level instruction datasets,
+            our <span class="sphinx-v">VP-MLLM</span> exhibit impressive multimodal interaction capabilities and pixel-level understanding,
+            while maintaining their image-level visual perception performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pipeline -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-seven-fifths">
+        <h2 class="title is-3">
+          <img src="static/images/sphinx-v-logo.png" alt="Icon" style="height: 1.1em; vertical-align: middle; margin-right: 0.1em;">
+          <span class="sphinx-v">VP-MLLM</span>: Understanding Arbitrary Format Visual Prompts and Images from Diverse Domains
+        </h2>
+        <div class="content has-text-justified">
+          <p>
+            We will detail the process of integrating visual prompt understanding into pre-trained MLLMs and transforming them
+            into Visual Prompting MLLMs (<span class="sphinx-v">VP-MLLM</span>), as well as the training strategy designed to enhance alignment and fine-tuning for VP-MLLMs below.
+          </p>
+          <p>
+            For most existing MLLMs, the overall architecture consists of three components: a vision encoder, a tokenizer (text encoder),
+            and a Large Language Model (LLM). Each modality is processed by its corresponding encoder, and the resulting tokens are concatenated
+            and fed into the LLM for learning. Similarly, to achieve visual prompting understanding, we incorporate a visual prompt encoder
+            to embed the input visual prompts. This integration allows us to combine the image, visual prompt, and language representations
+            and forward them collectively to the LLM:
+          </p>
+          <div style="text-align: center;">
+            <img src="static/images/arch-1.png" alt="arch" style="height: auto; width: 100%; display: inline-block;">
+          </div>
+          <p></p>
+          <p>
+            As shown in Figure(b) above, we introduce a simple yet effective visual prompt encoder that focuses on two types of visual prompts:
+            points and bounding boxes. Initially, the encoder utilizes positional encoding for the coordinates of both
+            points (center) and boxes (top-left and bottom-right corners). It then adds three distinct learnable embeddings for
+            each corner and processes them through a linear layer to obtain unified output embeddings. Additionally, we accommodate
+            a dynamic number of visual prompts as input. We first set a fixed number of visual prompt tokens (16). Based on the
+            validity of the actual input tokens, we provide both valid and invalid tokens with a set of learnable vectors to
+            help the model discern their effective features. Finally, we employ a linear layer to map the embeddings of
+            different prompt types to the same dimension, thereby unifying the various visual prompt inputs.
+            </p>
+          <p><span class="sphinx-v">VP-MLLM</span> is trained in two stages:</p>
+
+              <ul>
+                <li><strong>Stage 1: Image-Visual Prompt-Text Alignment Pre-training.</strong>
+                  <p>
+                    We initially freeze both the pre-trained vision encoder and the LLM, then focus on training the
+                    features of visual prompts to align with those of the input image and text. Following the approach in LLaVA,
+                    we implement an MLP to transform the visual prompt tokens into the latent space of the LLM.
+                    We use open-source detection and segmentation datasets to create our stage 1 training data.
+                    These datasets include a wide range of objects and label types, such as elements of the
+                    <i>natural world (e.g., people, animals, objects)</i>,
+                    <i>remote sensing (e.g., buildings, roads, vehicles, water bodies)</i>,
+                    <i>document components (e.g., titles, paragraphs, images, tables)</i>,
+                    <i>OCR data (e.g., text recognition), and screenshots (e.g., icons, text, search bars)</i>.
+                    For point visual prompts, we randomly sample pixels from semantic segmentation images, where each point
+                    corresponds to a pixellevel label annotation. For box visual prompts, we directly use the ground truth bounding boxes from
+                    detection datasets as inputs, enabling the model to recognize their corresponding labels. With this rich and
+                    diverse data for pre-training, the model is well-equipped for visual prompting and object categorization.
+                  </p>
+                </li>
+
+                <li><strong>Stage 2: Multi-Task Supervised Finetuning.</strong>
+                  <p>
+                    At this stage, we load the weights trained from stage 1 and keep the vision encoder and visual
+                    prompt encoder weights frozen. We then fine-tune the visual prompt projector and the LLM.
+                    This stage focus on enhancing model’s ability to accurately interpret user instructions and
+                    handle diverse visual prompting understanding tasks, such as detailed captioning, inter-relationship
+                    analysis, and complex reasoning, while maintain the original robust vision-language global understanding capability.
+                  </p>
+                </li>
+              </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MDVP Dataset -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">
+          <img src="static/images/database.png" alt="Icon" style="height: 1.2em; vertical-align: middle; margin-right: 0.1em;">
+          <span class='mdvp-data'>MDVP-Data</span>: Multi-domain Visual-Prompt Instruction Dataset
+        </h2>
+        <div class="content has-text-justified">
+          <p>We introduce <span class="mdvp-data">MDVP-Data</span>, an instruction dataset designed to foster
+            fine-grained and open-world image understanding in MLLMs, encompassing approximately 1.6 million
+            multimodal dialogues. <span class="mdvp-data">MDVP-Data</span> integrates both point-level
+            and region-level instruction data derived from public datasets. It consists of two types of data:
+          </p>
+            <ol>
+              <li>Restructured public grounding datasets formatted for visual prompt-based instruction following tuning;</li>
+              <li>High-quality training pairs developed using meticulously crafted prompt templates, produced through the GPT-4V model.</li>
+            </ol>
+            <div style="text-align: center;">
+              <img src="static/images/data_fig-1.png" alt="arch" style="height: auto; width: 100%; display: inline-block;">
+            </div>
+            <p></p>
+            <p>
+              Above diagram displays the distribution of images drawn from various sources, including nature scenes,
+              OCR texts, remote sensing scenes, web content, mobile interfaces, documents, and multi-panel graphics.
+              It also features a sample from the GPT-assisted MDVP dataset, emphasizing the diversity
+              and richness of its point-based and region-based instruction-following data.
+            </p>
+            <div class="columns is-centered">
+
+
+              <div class="column">
+                <div class="content">
+                  <h2 class="title is-4">Natural Image</h2>
+                  <img src="static/images/Natural.png" alt="arch" style="height: auto; width: 95%; display: inline-block;">
+                </div>
+              </div>
+
+
+              <div class="column">
+                <h2 class="title is-4">Multi Panel Image</h2>
+                <div class="columns is-centered">
+                  <div class="column content">
+                    <img src="static/images/MultiPanel.png" alt="Multi_Panel" style="height: auto; width: 95%; display: inline-block;">
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="columns is-centered">
+
+
+              <div class="column">
+                <div class="content">
+                  <h2 class="title is-4">Document</h2>
+                  <img src="static/images/Document.png" alt="Document" style="height: auto; width: 95%; display: inline-block;">
+                </div>
+              </div>
+
+
+              <div class="column">
+                <h2 class="title is-4">Text Spot</h2>
+                <div class="columns is-centered">
+                  <div class="column content">
+                    <img src="static/images/TextSpot.png" alt="Document" style="height: auto; width: 95%; display: inline-block;">
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="columns is-centered">
+
+
+              <div class="column">
+                <div class="content">
+                  <h2 class="title is-4">Web Page</h2>
+                  <img src="static/images/WebPage.png" alt="WebPage" style="height: auto; width: 95%; display: inline-block;">
+                </div>
+              </div>
+
+
+              <div class="column">
+                <h2 class="title is-4">Screen Shot</h2>
+                <div class="columns is-centered">
+                  <div class="column content">
+                    <img src="static/images/ScreenShot.png" alt="ScreenShot" style="height: auto; width: 95%; display: inline-block;">
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Performance -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">
+          <img src="static/images/performance.png" alt="Icon" style="height: 1.4em; vertical-align: middle; margin-right: 0.1em;">
+          Performance
+        </h2>
+        <h3 class="title is-4" style="text-align: left;">
+          <img src="static/images/tradition-bench.png" alt="Icon" style="height: 1.2em; vertical-align: middle; margin-right: 0.1em;">
+          Traditional Evaluating Task
+        </h3>
+        <p style="text-align: left; margin-bottom: 20px;">
+          For evaluation, we primarily use two popular MLLMs: SPHINX-X and LLaVA-Next, along with three model sizes: 7B, 8B, and 13B.
+          In both visual prompt-based and traditional tasks, <span class="sphinx-v">VP-MLLM</span> significantly
+          outperforms existing visual-prompt-based methods.
+        </p>
+        <div class="content has-text-justified">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="static/images/exp-table1.png" alt="arch" style="height: auto; width: 90%; display: inline-block;">
+            <p>
+              Results of referring classification on LVIS and PACO, and COCO text. Calculation of Semantic
+              Similarity and Semantic IOU was performed using box visual prompts.
+            </p>
+          </div>
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="static/images/exp-table2.png" alt="arch" style="height: auto; width: 100%; display: inline-block;">
+            <p>
+              Region-level captioning performance on the validation set of RefCOCOg and performance comparison on
+              general MLLM benchmarks including VQA and OCR.
+            </p>
+          </div>
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="static/images/exp-table2.png" alt="arch" style="height: auto; width: 100%; display: inline-block;">
+            <p>
+              Region-level captioning performance on the validation set of RefCOCOg and performance comparison on
+              general MLLM benchmarks including VQA and OCR.
+            </p>
+          </div>
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="static/images/exp-table3.png" alt="arch" style="height: auto; width: 95%; display: inline-block;">
+            <p>
+              Performance on the LLaVA Bench, Ferret Bench, and our MDVP Bench.
+            </p>
+          </div>
+        </div>
+
+
+
+
+
+        <h3 class="title is-4" style="text-align: left;">
+          <img src="static/images/mdvp-bench.png" alt="Icon" style="height: 1.2em; vertical-align: middle; margin-right: 0.1em;">
+          MDVP-Bench
+        </h3>
+        <p style="text-align: left; margin-bottom: 20px;">
+          To evaluate the proficiency of the MLLM in complex
+          pixel-level image understanding tasks and its versatility across various domains,
+          we initially curated a subset of our <span class="mdvp-data">MDVP-Data</span>.
+          This subset underwent a thorough
+          manual content review and filtering process, resulting in the creation of MDVP-Bench.
+          MDVP-Bench is a comprehensive and challenging benchmark covering a wide range of tasks,
+          including concise descriptions, elaborate narratives, analyses of interconnections among
+          different regions, and complex reasoning. The performance of existing visual-prompt-based
+          methods on MDVP-Bench is as follows:
+        </p>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+	@article{lin2024draw,
+	  title={Draw-and-understand: Leveraging visual prompts to enable mllms to comprehend what you want},
+	  author={Lin, Weifeng and Wei, Xinyu and An, Ruichuan and Gao, Peng and Zou, Bocheng and Luo, Yulin and Huang, Siyuan and Zhang, Shanghang and Li, Hongsheng},
+	  journal={arXiv preprint arXiv:2403.20271},
+	  year={2024}
+	}
+    </code></pre>
+  </div>
+</section>
+
+
+</body>
+</html>
